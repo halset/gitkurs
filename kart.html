@@ -31,10 +31,18 @@
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			id: 'examples.map-i875mjb7'
-		}).addTo(map);
+		});
+        
+        var notopolayer = new L.TileLayer.WMS("http://opencache.statkart.no/gatekeeper/gk/gk.open", {
+            layers: 'topo2',
+            format: 'image/png',
+            attribution: '<a href="http://kartverket.no/">Kartverket</a>',
+            transparent: false
+        }).addTo(map);
         
         var baseMaps = {
-            "OpenStreetMap": osmlayer
+            "OpenStreetMap": osmlayer,
+            "Topografisk Norgeskart": notopolayer
         };
         var overlayMaps = {
         };
